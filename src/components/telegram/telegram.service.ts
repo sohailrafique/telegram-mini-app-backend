@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-const TelegramBot = require('node-telegram-bot-api');
+
+//const TelegramBot = require('node-telegram-bot-api');
 
 @Injectable()
 export class TelegramService {
@@ -8,8 +9,8 @@ export class TelegramService {
   constructor() {
     console.log('token==', process.env.TELEGRAM_BOT_TOKEN);
     const token = process.env.TELEGRAM_BOT_TOKEN; // Store the token in environment variable
-    this.bot = new TelegramBot(token, { polling: true });
-    this.bot.on('message', this.onReceiveMessage);
+    // this.bot = new TelegramBot(token, { polling: true });
+    // this.bot.on('message', this.onReceiveMessage);
   }
 
   onReceiveMessage = (msg: any) => {
