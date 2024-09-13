@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SharedModule } from './components/shared/shared.module';
 import { UserModule } from './components/user/user.module';
 import { TelegramModule } from './components/telegram/telegram.module';
+import { APP_FILTER } from '@nestjs/core';
+import { ExceptionHandler } from './utils/exception.handler';
 
 @Module({
   imports: [
@@ -25,6 +27,12 @@ import { TelegramModule } from './components/telegram/telegram.module';
     TelegramModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: ExceptionHandler,
+    },
+  ],
 })
 export class AppModule {}
