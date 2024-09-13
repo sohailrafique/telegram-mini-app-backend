@@ -9,8 +9,8 @@ import * as jwt from 'jsonwebtoken';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtPayload } from 'jsonwebtoken';
-import { ResponseService } from 'src/components/shared/services/response.service';
-import { UserEntity } from 'src/components/user/entities/user.entity';
+import { ResponseService } from '../components/shared/services/response.service';
+import { UserEntity } from '../components/user/entities/user.entity';
 
 @Injectable()
 export class UserAuthGuard implements CanActivate {
